@@ -63,7 +63,13 @@ Key: `analog.vsource`
 
 Key: `analog.awg`
 
-**Ports** — `n` (analog), `out` (analog), `s` (analog)
+**Ports** — `out` (analog)
+
+Its parameters change which ports it has; these are the defaults.
+
+| Parameter | Default | Accepts |
+|---|---|---|
+| `outputs` | `1` | `1`, `2` |
 
 ### Frequency Counter
 
@@ -71,7 +77,13 @@ Key: `analog.awg`
 
 Key: `analog.freq_counter`
 
-**Ports** — `in` (analog), `n` (analog), `s` (analog)
+**Ports** — `in` (analog)
+
+Its parameters change which ports it has; these are the defaults.
+
+| Parameter | Default | Accepts |
+|---|---|---|
+| `inputs` | `1` | `1`, `2` |
 
 ### Function Generator
 
@@ -79,7 +91,13 @@ Key: `analog.freq_counter`
 
 Key: `analog.func_gen`
 
-**Ports** — `n` (analog), `out` (analog), `s` (analog)
+**Ports** — `out` (analog)
+
+Its parameters change which ports it has; these are the defaults.
+
+| Parameter | Default | Accepts |
+|---|---|---|
+| `outputs` | `1` | `1`, `2` |
 
 ### Phase Noise
 
@@ -87,7 +105,13 @@ Key: `analog.func_gen`
 
 Key: `analog.phase_noise`
 
-**Ports** — `in` (analog), `n` (analog), `s` (analog)
+**Ports** — `in` (analog)
+
+Its parameters change which ports it has; these are the defaults.
+
+| Parameter | Default | Accepts |
+|---|---|---|
+| `inputs` | `1` | `1`, `2` |
 
 ### Scope
 
@@ -95,7 +119,7 @@ Key: `analog.phase_noise`
 
 Key: `analog.scope`
 
-**Ports** — `in1` (analog), `in2` (analog), `n` (analog), `s` (analog)
+**Ports** — `in1` (analog), `in2` (analog), `in3` (analog), `in4` (analog)
 
 ### Spectrum Analyser
 
@@ -103,7 +127,13 @@ Key: `analog.scope`
 
 Key: `analog.spec_an`
 
-**Ports** — `in` (analog), `n` (analog), `s` (analog)
+**Ports** — `in` (analog)
+
+Its parameters change which ports it has; these are the defaults.
+
+| Parameter | Default | Accepts |
+|---|---|---|
+| `inputs` | `1` | `1`, `2` |
 
 ## RF Blocks
 
@@ -117,7 +147,7 @@ Key: `analog.attenuator`
 
 | Parameter | Default | Accepts |
 |---|---|---|
-| `db` | `3` | 0 to 60, step 1 |
+| `db` | `3` | 0 to 60 dB, step 1 |
 
 ### Bias Tee
 

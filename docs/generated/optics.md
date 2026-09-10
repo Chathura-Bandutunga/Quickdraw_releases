@@ -17,7 +17,7 @@ Key: `optics.coupler_2x2`
 
 | Parameter | Default | Accepts |
 |---|---|---|
-| `ratio` | — | *(unset)*, `50:50`, `60:40`, `70:30`, `80:20`, `90:10`, `95:5`, `99:1` |
+| `split_pct` | `0` | 0 to 100 %, step 1 |
 
 ### Fibre PBS
 
@@ -99,7 +99,7 @@ Key: `optics.delay_line`
 
 | Parameter | Default | Accepts |
 |---|---|---|
-| `length` | — | *(unset)*, `1 m`, `2 m`, `5 m`, `10 m`, `20 m`, `50 m`, `100 m`, `1 km` |
+| `length_m` | `0` | 0 to 50000 m, step 1 |
 
 ### FBG
 
@@ -237,7 +237,7 @@ Its parameters change what they carry; these are the defaults.
 
 | Parameter | Default | Accepts |
 |---|---|---|
-| `db` | `0` | 0 to 40, step 1 |
+| `db` | `0` | 0 to 40 dB, step 1 |
 | `mode` | `fibre` | `fibre`, `free_space` |
 
 ### Optical Attenuator
@@ -252,7 +252,7 @@ Its parameters change what they carry; these are the defaults.
 
 | Parameter | Default | Accepts |
 |---|---|---|
-| `db` | `3` | 0 to 60, step 1 |
+| `db` | `3` | 0 to 60 dB, step 1 |
 | `mode` | `fibre` | `fibre`, `free_space` |
 | `variable` | `false` | any text |
 
@@ -383,8 +383,8 @@ Its parameters change what they carry; these are the defaults.
 | Parameter | Default | Accepts |
 |---|---|---|
 | `mode` | `fibre` | `fibre`, `free_space` |
-| `power_dbm` | `0` | -60 to 40, step 1 |
-| `wavelength_nm` | `0` | 0 to 12000, step 1 |
+| `power_dbm` | `0` | -60 to 40 dBm, step 1 |
+| `wavelength_nm` | `0` | 0 to 12000 nm, step 1 |
 
 ### Laser
 
@@ -399,8 +399,8 @@ Its parameters change what they carry; these are the defaults.
 | Parameter | Default | Accepts |
 |---|---|---|
 | `mode` | `fibre` | `fibre`, `free_space` |
-| `power_dbm` | `0` | -60 to 40, step 1 |
-| `wavelength_nm` | `0` | 0 to 12000, step 1 |
+| `power_dbm` | `0` | -60 to 40 dBm, step 1 |
+| `wavelength_nm` | `0` | 0 to 12000 nm, step 1 |
 
 ### Laser Diode
 
@@ -415,8 +415,8 @@ Its parameters change what they carry; these are the defaults.
 | Parameter | Default | Accepts |
 |---|---|---|
 | `mode` | `fibre` | `fibre`, `free_space` |
-| `power_dbm` | `0` | -60 to 40, step 1 |
-| `wavelength_nm` | `0` | 0 to 12000, step 1 |
+| `power_dbm` | `0` | -60 to 40 dBm, step 1 |
+| `wavelength_nm` | `0` | 0 to 12000 nm, step 1 |
 
 ### LED
 
@@ -431,8 +431,8 @@ Its parameters change what they carry; these are the defaults.
 | Parameter | Default | Accepts |
 |---|---|---|
 | `mode` | `fibre` | `fibre`, `free_space` |
-| `power_dbm` | `0` | -60 to 40, step 1 |
-| `wavelength_nm` | `0` | 0 to 12000, step 1 |
+| `power_dbm` | `0` | -60 to 40 dBm, step 1 |
+| `wavelength_nm` | `0` | 0 to 12000 nm, step 1 |
 
 ### Narrow Linewidth
 
@@ -447,8 +447,8 @@ Its parameters change what they carry; these are the defaults.
 | Parameter | Default | Accepts |
 |---|---|---|
 | `mode` | `fibre` | `fibre`, `free_space` |
-| `power_dbm` | `0` | -60 to 40, step 1 |
-| `wavelength_nm` | `0` | 0 to 12000, step 1 |
+| `power_dbm` | `0` | -60 to 40 dBm, step 1 |
+| `wavelength_nm` | `0` | 0 to 12000 nm, step 1 |
 
 ### SLED
 
@@ -463,5 +463,5 @@ Its parameters change what they carry; these are the defaults.
 | Parameter | Default | Accepts |
 |---|---|---|
 | `mode` | `fibre` | `fibre`, `free_space` |
-| `power_dbm` | `0` | -60 to 40, step 1 |
-| `wavelength_nm` | `0` | 0 to 12000, step 1 |
+| `power_dbm` | `0` | -60 to 40 dBm, step 1 |
+| `wavelength_nm` | `0` | 0 to 12000 nm, step 1 |

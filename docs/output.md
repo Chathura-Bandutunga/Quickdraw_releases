@@ -19,14 +19,30 @@ in Illustrator, Inkscape, and every browser. Journals take it, and LaTeX takes i
 The export draws exactly what the canvas draws, including any symbols that arrived
 embedded in the file rather than from your own library.
 
+## Copy as image — `⇧⌘C`
+
+**Edit ▸ Copy as Image** puts a picture of the diagram on the clipboard. Paste it
+straight into the lab notebook, the slide, or the message to a colleague — no save
+dialog, no screenshot tool, no cropping.
+
+It copies the **whole diagram**, not the selection and not the window: how far you are
+zoomed in, where the canvas is scrolled, and what is selected make no difference to the
+picture. The grid, the selection outlines and the handles are never in it — you do not
+have to turn Clean View on first — and the background is opaque white, so it stays
+readable pasted onto a dark slide.
+
+The image is drawn at twice canvas scale, which is what makes it survive being enlarged
+in a slide. It is still a raster: for a figure going into a paper, export SVG.
+
 ## Clean View — `⇧⌘'`
 
 **View ▸ Clean View** hides everything on the canvas that is not the diagram: the grid,
 selection outlines, port dots, drag handles. One key, and the window is a picture of your
 diagram.
 
-It is for taking a screenshot when a proper export would be overkill — a message to a
-colleague, a slide, a lab-book photo. Press it again to get your handles back. It is a
+It is for when the *window itself* is the thing being looked at — a screen share, a
+demo, a photo of the screen. If you only want the picture, `⇧⌘C` above already renders
+clean, so you do not need this first. Press it again to get your handles back. It is a
 view mode, so it changes nothing in the file and nothing in an export.
 
 For a figure that is going into a paper, export SVG instead: it is vector, it is

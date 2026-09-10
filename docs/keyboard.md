@@ -23,6 +23,7 @@ shortcut.
 |---|---|
 | `⌘Z` / `⇧⌘Z` | Undo / Redo |
 | `⌘C` / `⌘V` | Copy / Paste |
+| `⇧⌘C` | Copy the diagram to the clipboard as an image |
 | `⌘D` | Duplicate |
 | `⌘K` | Quick Add — type a name, press Return |
 | `⌘G` | Insert container |

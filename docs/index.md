@@ -24,7 +24,7 @@ cavity, with the optics, the detection electronics and the servo each in their o
 | [Connections](connections.md) | Connectors, splices and soldered joints — and their insertion loss |
 | [Labels and text](labels.md) | Naming things, and making a label say what a parameter says |
 | [Organising a diagram](organising.md) | Containers, aligning and distributing |
-| [Getting it out](output.md) | Export to SVG, PNG or PDF, Clean View, and the patch-list CSV |
+| [Getting it out](output.md) | Export to SVG, PNG or PDF, copy as an image, Clean View, and the patch-list CSV |
 | [Your own symbols](your-own-symbols.md) | Draw a part that isn't in the library, and share it |
 | [The `.dsd` file](dsd-file.md) | What Quickdraw saves, and why it's plain text |
 | [Keyboard reference](keyboard.md) | Every shortcut, on one page |

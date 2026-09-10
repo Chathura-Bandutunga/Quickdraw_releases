@@ -121,7 +121,7 @@ Key: `dsp.zero_span`
 
 | Parameter | Default | Accepts |
 |---|---|---|
-| `center_mhz` | `0` | 0 to 40000, step 1 |
+| `center_mhz` | `0` | 0 to 40000 MHz, step 1 |
 
 ## Filters
 

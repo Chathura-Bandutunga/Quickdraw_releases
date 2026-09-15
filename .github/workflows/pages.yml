@@ -1,0 +1,57 @@
+name: Publish manual to GitHub Pages
+
+# The docs/ folder is overwritten by the release exporter in the source
+# repository, so the site config lives here at the repository root instead and
+# docs/ is copied into the build untouched.
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'docs/**'
+      - 'site/**'
+      - '.github/workflows/pages.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Assemble the site source
+        run: |
+          mkdir -p _site_src
+          cp -R docs/. _site_src/
+          cp -R site/. _site_src/
+          # docs/README.md and docs/index.md are the same page; Jekyll would
+          # otherwise publish both as / and /README.
+          rm -f _site_src/README.md
+
+      - uses: actions/configure-pages@v5
+
+      - uses: actions/jekyll-build-pages@v1
+        with:
+          source: ./_site_src
+          destination: ./_site
+
+      - uses: actions/upload-pages-artifact@v3
+
+  deploy:
+    needs: build
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4

@@ -11,11 +11,12 @@
 </p>
 
 <p align="center">
-  <img src="assets/hero-laser-lock.svg" alt="A laser locked to a cavity, drawn in Quickdraw: optics, RF electronics and digital control each in their own group" width="820">
+  <img src="assets/Diagram_Hero.svg" alt="A fibre link stabilised over 15 km, drawn in Quickdraw: the optics, the RF chain and the FPGA servo in one diagram" width="900">
 </p>
 
 <p align="center">
-  <sub><code>laser_lock.dsd</code>, one of the examples that ships with the app.</sub>
+  <sub>A fibre link stabilised over 15 km — the optics, the RF chain and the
+  FPGA servo in one diagram, exported straight to SVG.</sub>
 </p>
 
 Quickdraw draws the diagram that ends up in a lab notebook, a group-meeting slide or a

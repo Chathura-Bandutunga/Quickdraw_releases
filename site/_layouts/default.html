@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{% if page.title and page.title != site.title %}{{ page.title }} · {{ site.title }}{% else %}{{ site.title }}{% endif %}</title>
+<meta name="description" content="{{ site.description }}">
+<link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
+</head>
+<body>
+
+<header class="masthead">
+  <a class="wordmark" href="{{ '/' | relative_url }}">Quickdraw</a>
+  <nav>
+    <a href="{{ '/getting-started.html' | relative_url }}">Getting started</a>
+    <a href="{{ '/generated/' | relative_url }}index.html">Symbols</a>
+    <a href="{{ site.repo }}/releases/latest">Download</a>
+    <a href="{{ site.repo }}">GitHub</a>
+  </nav>
+</header>
+
+<main>
+  {{ content }}
+</main>
+
+<footer>
+  <p>The manual is published from the Quickdraw source repository on each release, and the
+  symbol reference is generated from the code that draws the symbols. Spotted something
+  wrong? <a href="{{ site.repo }}/issues">Open an issue</a> rather than editing these pages.</p>
+</footer>
+
+</body>
+</html>

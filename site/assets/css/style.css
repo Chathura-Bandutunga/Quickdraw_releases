@@ -169,8 +169,10 @@ th { font-weight: 650; color: var(--fg-muted); font-size: 0.85rem; }
 thead th { border-bottom: 2px solid var(--rule); }
 
 /* The manual's index pages use `| | |` — a header row with no words in it,
-   which otherwise renders as a blank band above the first link. */
-thead:has(th:empty) { display: none; }
+   which otherwise renders as a blank band above the first link. kramdown fills
+   those cells with a non-breaking space, so :empty cannot match them; the
+   build tags the table instead. */
+.headerless thead { display: none; }
 
 tbody tr:hover { background: var(--bg-soft); }
 

@@ -8,25 +8,12 @@ rm -rf "$SRC"
 mkdir -p "$SRC"
 cp -R docs/. "$SRC"/
 cp -R site/. "$SRC"/
-rm -f "$SRC"/README.md "$SRC"/build.sh
+rm -f "$SRC"/README.md "$SRC"/build.sh "$SRC"/swap_hero.py "$SRC"/prepare_pages.py
 
-# The exporter writes plain markdown with no YAML front matter. Jekyll treats a
-# front-matter-less file as a static file and copies it through untouched, so
-# without this the site serves raw .md and has no index.html at all.
-find "$SRC" -name '*.md' -print0 | while IFS= read -r -d '' f; do
-  head -n 1 "$f" | grep -qx -- '---' && continue
-  title=$(grep -m1 '^# ' "$f" | sed 's/^# //' || true)
-  { printf -- '---\nlayout: default\n'
-    [ -n "$title" ] && printf 'title: %s\n' "$(printf '%s' "$title" | sed 's/"/\\"/g')"
-    printf -- '---\n'
-    cat "$f"
-  } > "$f.tmp"
-  mv "$f.tmp" "$f"
-done
+# Use this repository's hero on the front page instead of the exporter's chosen
+# example. Fails the build if the export drifts, rather than silently keeping
+# the old one.
+./site/swap_hero.py "$SRC"
 
-# Relative links between the pages point at .md. GitHub Pages' own build enables
-# jekyll-relative-links, which rewrites them, but doing it here keeps the site
-# correct under a plain `jekyll build` too.
-find "$SRC" -name '*.md' -print0 | while IFS= read -r -d '' f; do
-  sed -i -E 's/\]\(([^):]*)\.md(#[^)]*)?\)/](\1.html\2)/g' "$f"
-done
+# Front matter, .md -> .html links, and the empty table headers.
+./site/prepare_pages.py "$SRC"

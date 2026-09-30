@@ -1,0 +1,70 @@
+name: Linux AppImage
+
+# Builds a Linux AppImage whenever Quickdraw publishes a new release upstream,
+# and attaches it to a release of the same tag in this repository.
+on:
+  schedule:
+    - cron: "17 3 * * *"   # daily check for a new upstream release
+  workflow_dispatch:
+    inputs:
+      version:
+        description: "Quickdraw version to build (blank = latest upstream release)"
+        required: false
+      force:
+        description: "Rebuild even if this repo already has a release for it"
+        type: boolean
+        default: false
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-24.04
+    env:
+      GH_TOKEN: ${{ github.token }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Pick version
+        id: ver
+        run: |
+          v="${{ inputs.version }}"
+          if [ -z "$v" ]; then
+            v="$(gh release view --repo Chathura-Bandutunga/Quickdraw_releases --json tagName -q .tagName)"
+          fi
+          v="${v#v}"
+          echo "version=$v" >> "$GITHUB_OUTPUT"
+          if gh release view "v$v" --repo "$GITHUB_REPOSITORY" >/dev/null 2>&1 && [ "${{ inputs.force }}" != "true" ]; then
+            echo "Release v$v already exists here; nothing to do."
+            echo "skip=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Install build dependencies
+        if: steps.ver.outputs.skip != 'true'
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq binutils libegl1 libgl1 libxkbcommon0 libfontconfig1 libdbus-1-3
+
+      - name: Build AppImage
+        if: steps.ver.outputs.skip != 'true'
+        run: ./linux/build-appimage.sh "${{ steps.ver.outputs.version }}"
+
+      - name: Publish release
+        if: steps.ver.outputs.skip != 'true'
+        run: |
+          v="${{ steps.ver.outputs.version }}"
+          f="dist/Quickdraw-$v-x86_64.AppImage"
+          sha256sum "$f" > "$f.sha256"
+          if gh release view "v$v" --repo "$GITHUB_REPOSITORY" >/dev/null 2>&1; then
+            gh release upload "v$v" "$f" "$f.sha256" --clobber --repo "$GITHUB_REPOSITORY"
+          else
+            gh release create "v$v" "$f" "$f.sha256" --repo "$GITHUB_REPOSITORY" --target "$GITHUB_SHA" \
+              --title "Quickdraw $v for Linux (AppImage)" \
+              --notes "Unofficial Linux AppImage of [Quickdraw $v](https://github.com/Chathura-Bandutunga/Quickdraw_releases/releases/tag/v$v), built from the official Windows release by \`linux/build-appimage.sh\`. The application code is unchanged; it runs on a bundled Linux Python 3.12 and PySide6.
+
+          \`\`\`bash
+          chmod +x Quickdraw-$v-x86_64.AppImage
+          ./Quickdraw-$v-x86_64.AppImage
+          \`\`\`"
+          fi

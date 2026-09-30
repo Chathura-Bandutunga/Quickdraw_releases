@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mime-info xmlns="http://www.freedesktop.org/standards/shared-mime-info">
+  <mime-type type="application/x-quickdraw-diagram">
+    <sub-class-of type="application/json"/>
+    <comment>Quickdraw diagram</comment>
+    <glob pattern="*.dsd"/>
+    <icon name="quickdraw"/>
+  </mime-type>
+</mime-info>

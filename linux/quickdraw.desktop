@@ -1,0 +1,12 @@
+[Desktop Entry]
+Type=Application
+Name=Quickdraw
+GenericName=Lab Diagram Editor
+Comment=Drag-and-drop lab diagrams: FPGA/DSP, fibre optics, free-space optics, analog/RF
+Exec=quickdraw %F
+Icon=quickdraw
+Terminal=false
+Categories=Graphics;VectorGraphics;Science;Engineering;
+MimeType=application/x-quickdraw-diagram;
+Keywords=diagram;optics;fibre;fiber;FPGA;DSP;RF;schematic;
+X-AppImage-Version=@VERSION@

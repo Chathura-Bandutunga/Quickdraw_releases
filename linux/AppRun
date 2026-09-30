@@ -1,0 +1,11 @@
+#!/bin/sh
+# Quickdraw AppImage launcher.
+HERE="${APPDIR:-$(dirname "$(readlink -f "$0")")}"
+
+# Keep conda/venv/system Python and Qt settings from leaking in.
+unset PYTHONHOME PYTHONPATH PYTHONSTARTUP QT_PLUGIN_PATH QML2_IMPORT_PATH QT_QPA_PLATFORM_PLUGIN_PATH
+
+# Bundled libxcb-cursor for Qt's X11 backend.
+export LD_LIBRARY_PATH="$HERE/usr/lib${LD_LIBRARY_PATH:+:$LD_LIBRARY_PATH}"
+
+exec "$HERE/usr/python/bin/python3.12" -I "$HERE/usr/share/quickdraw/quickdraw.py" "$@"

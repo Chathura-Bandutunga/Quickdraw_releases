@@ -35,11 +35,25 @@ What counts as an obstacle is the symbol's drawn extent **including its label** 
 moving a label out of the way genuinely moves the wires out of the way too, which is
 occasionally the easiest fix for a cramped corner.
 
+Wires also keep out of each other's way. Where two unrelated wires would run along the
+same line — or so close that they read as one — the later one in the diagram steps a lane
+over. Wires leaving the **same port** are left sharing their trunk, because that is how a
+schematic shows one signal going to two places. If there is genuinely no room, the wires
+overlap rather than detour through a symbol.
+
+If a wire cannot find a way round at all, it is drawn through the symbol in its way and
+**highlighted in pink** on the canvas, and the status bar says how many wires are
+affected. The highlight is only on screen — exports and Copy as Image draw the wire
+normally — and right-clicking the wire says what to do. A straight wire is never steered
+round symbols, so it is highlighted whenever it passes through one.
+
 ## Waypoints
 
-When the automatic route is not the one you want, right-click the wire where you want it
-to go and choose **Add waypoint here**. The wire is pinned through that point and routes
-around obstacles on either side of it. **Clear waypoints** on the same menu puts it back.
+When the automatic route is not the one you want, double-click the wire where you want it
+to go. The wire is pinned through that point and routes around obstacles on either side
+of it. **Clear** beside Waypoints in the wire's card (right-click the wire) puts it back.
+A wire with waypoints, or a straight wire, is routed exactly as you set it and never
+steps aside for another wire.
 
 Waypoints are how you say "go around the *other* way" without hand-drawing the path — the
 route is still computed, so it still updates when things move.

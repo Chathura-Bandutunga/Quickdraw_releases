@@ -11,6 +11,13 @@ Download the file for your platform from the
 permanent, then run `Quickdraw.exe` from inside it. Running it from within the zip
 viewer will not work.
 
+**Linux** — the same as Windows: extract the whole `Quickdraw` folder out of the `.zip`,
+then run `Quickdraw` from inside it. It needs Ubuntu 22.04, Debian 12, Fedora 36 or
+anything newer. If it does not start and a terminal shows *could not load the Qt platform
+plugin "xcb"*, install `libxcb-cursor0` (Ubuntu, Debian) or `xcb-util-cursor` (Fedora).
+Opening a `.dsd` by double-clicking it is not set up on Linux yet — open files from
+**File ▸ Open**, or pass one on the command line.
+
 Nothing else to install. Python, Qt and every dependency are inside the bundle.
 
 ## The first time you open it
@@ -18,14 +25,15 @@ Nothing else to install. Python, Qt and every dependency are inside the bundle.
 Quickdraw isn't signed with a paid Apple or Microsoft developer certificate, so your
 computer will warn you that it can't verify the app. This is expected, and you only need
 to deal with it once. The full instructions travel with every download as
-*Opening Quickdraw.txt*, and they are on the
-[Releases page](https://github.com/Chathura-Bandutunga/Quickdraw_releases/releases) too.
+*Opening Quickdraw.txt*, and every entry on the
+[Releases page](https://github.com/Chathura-Bandutunga/Quickdraw_releases/releases)
+links back to this section.
 
 The short version: on macOS, either run
 `xattr -dr com.apple.quarantine /Applications/Quickdraw.app` in Terminal, or open
 **System Settings → Privacy & Security** and click **Open Anyway** after the first
 blocked attempt. On Windows, click **More info** then **Run anyway** on the SmartScreen
-dialog.
+dialog. Linux shows no warning.
 
 ## The window
 
